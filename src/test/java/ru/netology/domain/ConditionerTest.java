@@ -45,16 +45,6 @@ class ConditionerTest {
     }
 
     @Test
-    public void shouldCurrentOverMax() {
-        Conditioner conditioner = new Conditioner();
-        conditioner.setMaxTemperature(36);
-        conditioner.setMinTemperature(15);
-        conditioner.setCurrentTemperature(37);
-        conditioner.increaseCurrentTemperature();
-        assertEquals(36, conditioner.getCurrentTemperature());
-    }
-
-    @Test
     public void shouldCurrentUnderMin() {
         Conditioner conditioner = new Conditioner();
         conditioner.setMaxTemperature(36);
@@ -62,5 +52,15 @@ class ConditionerTest {
         conditioner.setCurrentTemperature(14);
         conditioner.decreaseCurrentTemperature();
         assertEquals(15, conditioner.getCurrentTemperature());
+    }
+    
+    @Test
+    public void shouldCurrentOverMax() {
+        Conditioner conditioner = new Conditioner();
+        conditioner.setMaxTemperature(36);
+        conditioner.setMinTemperature(15);
+        conditioner.setCurrentTemperature(37);
+        conditioner.increaseCurrentTemperature();
+        assertEquals(36, conditioner.getCurrentTemperature());
     }
 }
